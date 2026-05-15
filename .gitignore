@@ -1,0 +1,28 @@
+# Compiled Binaries & Objects
+*.exe
+*.obj
+*.o
+*.out
+*.bin
+*.pdb
+
+# ED bytecode bundle
+*.edb
+# Python related
+__pycache__
+*.pyc
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System files
+Thumbs.db
+.DS_Store
+
+# Build directories
+out/
+build/
+bin/
