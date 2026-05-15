@@ -1,0 +1,95 @@
+// Variable scope checks for ED
+
+emit("=== Variable scope ===\n");
+
+emit("--- 1. Top level ---\n");
+a = 10;
+emit("a = ", a, "\n");
+
+emit("--- 2. Block ---\n");
+{
+    b = 20;
+    emit("Inside block, b = ", b, "\n");
+}
+
+emit("--- 3. cell ---\n");
+{
+    cell c = 30;
+    emit("Inside block, c = ", c, "\n");
+}
+
+emit("--- 4. sheet ---\n");
+{
+    sheet d = 40;
+    emit("Inside block, d = ", d, "\n");
+}
+emit("Outside block, d = ", d, "\n");
+
+emit("--- 5. sheet in routine ---\n");
+sheet e = 50;
+
+proc testGlobal() {
+    emit("Inside routine, e = ", e, "\n");
+    e += 10;
+    emit("After +=, e = ", e, "\n");
+}
+
+testGlobal();
+emit("Outside routine, e = ", e, "\n");
+
+emit("--- 6. cell default in routine ---\n");
+
+proc testLocal() {
+    f = 70;
+    emit("Inside routine, f = ", f, "\n");
+}
+testLocal();
+
+emit("--- 7. span ---\n");
+
+span (g = 0; g < 3; g = g + 1) {
+    emit("g = ", g, " ");
+}
+emit("\n");
+
+emit("--- 8. Nested blocks ---\n");
+
+{
+    cell h = 80;
+    {
+        cell i = 90;
+        emit("Inner: h=", h, " i=", i, "\n");
+    }
+    emit("Outer: h=", h, "\n");
+}
+
+emit("--- 9. choose / otherwise ---\n");
+
+choose (yes) {
+    cell j = 100;
+    emit("Inside choose, j = ", j, "\n");
+}
+
+emit("--- 10. during ---\n");
+
+k = 0;
+during (k < 3) {
+    cell m = k * 10;
+    emit("m = ", m, " ");
+    k = k + 1;
+}
+emit("\n");
+
+emit("--- 11. sheet x ---\n");
+
+sheet x = 10;
+
+proc foo() {
+    x += 55;
+    emit("Inside foo, x = ", x, "\n");
+}
+
+foo();
+emit("Outside foo, x = ", x, "\n");
+
+emit("\n=== Done ===\n");

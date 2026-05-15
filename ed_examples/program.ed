@@ -1,0 +1,22 @@
+// ED sample: procedures, functions, math, and input
+
+proc greet() {
+   emit("Hello!");
+}
+
+fn add(a, b) {
+   give a + b;
+}
+
+greet();
+result = add(3, 5);
+emit(result);
+
+emit(euler);
+emit(pi);
+emit(sin(45 * pi / 180));
+emit(log_ab(5, 25));
+emit(ln(4));
+
+name = input("What's your name? ");
+emit("Hello " + name + '!');
