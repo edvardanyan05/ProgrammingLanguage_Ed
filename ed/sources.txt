@@ -1,0 +1,7 @@
+main.cpp
+stack_emitter.cpp
+syntax.cpp
+source_scan.cpp
+lexicon.cpp
+phrase_book.cpp
+tape_runner.cpp
