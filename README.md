@@ -1,4 +1,4 @@
-# Ed
+# Ed (ProgrammingLanguage)
 
 **Ed** is a small calculator-style educational language: lexer → parser → bytecode emitter → stack VM. Source files use the **`.ed`** extension; compiled tape bundles use **`.edb`** (magic `EDB1`).
 
